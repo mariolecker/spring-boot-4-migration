@@ -1,0 +1,21 @@
+/* Web page variant: sections run edge to edge, content stays centered.
+   Loaded after styles.css by web.html; index.html (the poster) is unchanged. */
+
+:root { --content: 1440px; }
+
+body { background: var(--paper); }
+
+.poster {
+  max-width: none;
+  margin: 0;
+  box-shadow: none;
+  /* side padding grows so content keeps a fixed width on wide screens */
+  --pad-x: max(80px, calc((100vw - var(--content)) / 2));
+}
+
+@media (max-width: 1400px) { .poster { --pad-x: 56px; } }
+@media (max-width: 960px)  { .poster { --pad-x: 24px; } }
+
+@media print {
+  .poster { --pad-x: 80px; }
+}
