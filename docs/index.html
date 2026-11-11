@@ -25,6 +25,7 @@
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/metropolis-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script>try{if(localStorage.getItem("theme")==="contrast")document.documentElement.dataset.theme="contrast"}catch(e){}</script>
 <link rel="stylesheet" href="assets/css/styles.css">
 <link rel="stylesheet" href="assets/css/web.css">
 <script type="application/ld+json">
@@ -58,6 +59,7 @@
   <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></symbol>
   <symbol id="i-flask" viewBox="0 0 24 24"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></symbol>
   <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-contrast" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 18a6 6 0 0 0 0-12v12z"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
   <symbol id="i-checks" viewBox="0 0 24 24"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></symbol>
   <symbol id="i-cpu" viewBox="0 0 24 24"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></symbol>
@@ -68,11 +70,12 @@
 
   <!-- ============ HEADER ============ -->
   <header class="masthead">
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-contrast"/></svg>High contrast</button>
     <div class="masthead-main">
       <div>
         <h1>Spring Boot 4</h1>
         <p class="tagline">What's new, and how to get there from 3.x</p>
-        <p class="lead">The first major release since 2022 brings smaller modules, Jackson 3, JSpecify null safety and built-in API versioning. Most of the upgrade is renaming. Watch out for the few changes that compile fine but behave differently.</p>
+        <p class="lead">The first major release since 2022 brings one module per technology, Jackson 3, JSpecify null safety and built-in API versioning. Most of the upgrade is renaming. Watch out for the few changes that compile fine but behave differently.</p>
       </div>
       <figure class="diff-card" aria-label="Example pom.xml change: Spring Boot parent version 3.5.16 becomes 4.0.0, spring-boot-starter-web becomes spring-boot-starter-webmvc, flyway-core becomes spring-boot-starter-flyway">
         <figcaption><span class="tab">pom.xml</span><span class="meta">3.5 to 4.0</span></figcaption>
@@ -93,11 +96,11 @@
 
 
     <ol class="timeline" aria-label="Release timeline">
-      <li><time datetime="2025-11-20">November 2025</time><span class="ev">Boot 4.0.0</span><span class="note">Released 20 November, a week after Framework 7.0, alongside Data 2025.1 and Cloud 2025.1.<a class="ref" href="#src-3">3</a><a class="ref" href="#src-5">5</a></span></li>
-      <li><time datetime="2026-01">January 2026</time><span class="ev">Cloud 2025.1.1</span><span class="note">Needed for Boot 4.0.1 and later. 2025.1.0 only works with 4.0.0.<a class="ref" href="#src-11">11</a></span></li>
-      <li><time datetime="2026-06-10">June 2026</time><span class="ev">Boot 4.1.0<a class="ref" href="#src-13">13</a></span></li>
-      <li class="past"><time datetime="2026-06-25">June 2026</time><span class="ev">Last free 3.5 release</span><span class="note">3.5.16 ends open source support for 3.x.<a class="ref" href="#src-15">15</a></span></li>
-      <li class="next"><time datetime="2026-11">November 2026</time><span class="ev">Boot 4.2 RC<a class="ref" href="#src-14">14</a></span><span class="note">General availability pending.</span></li>
+      <li><time datetime="2025-11-20">November 2025</time><span class="ev">Spring Boot 4.0.0</span><span class="note">Released 20 November, a week after Spring Framework 7.0, alongside Spring Data 2025.1 and Spring Cloud 2025.1.<a class="ref" href="#src-3">3</a><a class="ref" href="#src-5">5</a></span></li>
+      <li><time datetime="2026-01">January 2026</time><span class="ev">Spring Cloud 2025.1.1</span><span class="note">Use it with Spring Boot 4.0.1 and later. Spring Cloud 2025.1.0 only works with 4.0.0.<a class="ref" href="#src-11">11</a></span></li>
+      <li><time datetime="2026-06-10">June 2026</time><span class="ev">Spring Boot 4.1.0<a class="ref" href="#src-13">13</a></span></li>
+      <li class="past"><time datetime="2026-06-25">June 2026</time><span class="ev">Last free 3.5 release</span><span class="note">Spring Boot 3.5.16 is the last free 3.x release. Later 3.x fixes need commercial support.<a class="ref" href="#src-15">15</a></span></li>
+      <li class="next"><time datetime="2026-11">November 2026</time><span class="ev">Spring Boot 4.2 RC<a class="ref" href="#src-14">14</a></span><span class="note">Final release not published yet.</span></li>
     </ol>
   </header>
 
@@ -111,10 +114,10 @@
 
       <article class="feature wide">
         <header><svg class="icon" aria-hidden="true"><use href="#i-boxes"/></svg><h3>One module per technology</h3></header>
-        <p>The old auto-configuration jar had grown to 2 MiB, and every class and property in it showed up in your IDE. Now each technology gets its own module, starter and test starter, all named the same way.<a class="ref" href="#src-1">1</a><a class="ref" href="#src-4">4</a></p>
+        <p>The old auto-configuration jar had grown to 2 MiB, and every class and property in it showed up in your IDE. Now each technology gets its own module, starter and test starter, all following the naming scheme below.<a class="ref" href="#src-1">1</a><a class="ref" href="#src-4">4</a></p>
         <div class="sizebar" aria-label="Size of spring-boot-autoconfigure over time">
-          <div class="row"><span>Boot 1.0, 2014</span><div class="bar"><span style="width:9%"></span><b style="--w:9%">182 KiB</b></div></div>
-          <div class="row"><span>Boot 3.5, 2025</span><div class="bar"><span style="width:100%"></span><b class="in">2 MiB</b></div></div>
+          <div class="row"><span>Spring Boot 1.0, 2014</span><div class="bar"><span style="width:9%"></span><b style="--w:9%">182 KiB</b></div></div>
+          <div class="row"><span>Spring Boot 3.5, 2025</span><div class="bar"><span style="width:100%"></span><b class="in">2 MiB</b></div></div>
         </div>
         <table class="naming">
           <tr><th scope="row">Module</th><td>spring-boot-<var>flyway</var></td></tr>
@@ -126,16 +129,16 @@
 
       <article class="feature wide">
         <header><svg class="icon" aria-hidden="true"><use href="#i-braces"/></svg><h3>Jackson 3 by default</h3></header>
-        <p>New group ID and package, immutable mappers, unchecked exceptions, and support for <code>java.time</code> without an extra module.<a class="ref" href="#src-1">1</a></p>
+        <p>New group ID and package (<code>tools.jackson</code>), immutable mappers, unchecked exceptions, and support for <code>java.time</code> without an extra module.<a class="ref" href="#src-1">1</a></p>
 <pre><code><span class="cm">// Spring Boot 3.x</span>
 <span class="del">import com.fasterxml.jackson.databind.ObjectMapper;</span>
 <span class="cm">// Spring Boot 4</span>
 <span class="kw">import</span> tools.jackson.databind.json.JsonMapper;
 <span class="kw">import</span> com.fasterxml.jackson.annotation.JsonProperty; <span class="cm">// unchanged</span></code></pre>
         <ul>
-          <li>Boot configures a <code>JsonMapper</code>. To replace it, define a <code>JsonMapper</code> bean, not an <code>ObjectMapper</code>.</li>
-          <li>Every Jackson module on the classpath is registered automatically.</li>
-          <li>Not ready to switch? The deprecated <code>spring-boot-jackson2</code> module keeps Jackson 2 running for now.</li>
+          <li>The auto-configured mapper is now a <code>JsonMapper</code>. A custom <code>ObjectMapper</code> bean no longer replaces it, so declare your own <code>JsonMapper</code> bean instead.</li>
+          <li>Every Jackson module on the classpath is registered automatically. Turn this off with <code>spring.jackson.find-and-add-modules=false</code>.</li>
+          <li>Not ready to switch? The <code>spring-boot-jackson2</code> module lets you stay on Jackson 2 while you migrate. It is deprecated and will be removed in a later release.</li>
         </ul>
       </article>
 
@@ -149,12 +152,12 @@ OrderV1 <span class="kw">orderV1</span>(...)
 OrderV2 <span class="kw">orderV2</span>(...)</code></pre>
 <pre><code><span class="key">spring.mvc.apiversion.use.header</span>=X-Version
 <span class="key">spring.mvc.apiversion.default</span>=1.0.0</code></pre>
-        <p class="small"><code>"1.1+"</code> matches 1.1 and every later version. WebFlux uses <code>spring.webflux.apiversion.*</code>. RestClient, WebClient and the test clients can send versions too.</p>
+        <p class="small"><code>"1.1+"</code> matches 1.1 and every later version. WebFlux uses <code>spring.webflux.apiversion.*</code>. On the client side, <code>RestClient</code>, <code>WebClient</code>, <code>WebTestClient</code> and MockMvc can send a version with each request.</p>
       </article>
 
       <article class="feature">
         <header><svg class="icon" aria-hidden="true"><use href="#i-plug"/></svg><h3>HTTP service clients</h3></header>
-        <p>Write an interface and Spring creates the client. Group clients and configure each group with properties.<a class="ref" href="#src-8">8</a></p>
+        <p>Declare an interface with <code>@HttpExchange</code> methods and Spring generates the implementation. Put clients into groups and set the base URL and timeouts per group in properties.<a class="ref" href="#src-8">8</a></p>
 <pre><code><span class="an">@HttpExchange</span>(<span class="st">"/orders"</span>)
 <span class="kw">interface</span> OrderClient {
   <span class="an">@GetExchange</span>(<span class="st">"/{id}"</span>)
@@ -171,18 +174,19 @@ OrderV2 <span class="kw">orderV2</span>(...)</code></pre>
 
       <article class="feature full-mid">
         <header><svg class="icon" aria-hidden="true"><use href="#i-retry"/></svg><h3>Retry and concurrency limits</h3></header>
-        <p>Retries and throttling are now part of Spring Framework 7. For most apps, that replaces Spring Retry.<a class="ref" href="#src-6">6</a></p>
+        <p>Retries and concurrency limits are now part of Spring Framework 7. In most apps you can drop the Spring Retry dependency.<a class="ref" href="#src-6">6</a></p>
 <pre><code><span class="an">@Configuration</span>
 <span class="an">@EnableResilientMethods</span>
 <span class="kw">class</span> ResilienceConfig {}
 
 <span class="an">@Retryable</span>(includes = TimeoutException.<span class="kw">class</span>,
-    maxRetries = <span class="st">4</span>, delay = <span class="st">100</span>, multiplier = <span class="st">2</span>)
+    maxRetries = <span class="st">4</span>, delay = <span class="st">100</span>,
+    multiplier = <span class="st">2</span>)
 <span class="kw">public</span> Quote <span class="kw">fetchQuote</span>() { ... }
 
 <span class="an">@ConcurrencyLimit</span>(<span class="st">10</span>)
 <span class="kw">public void</span> <span class="kw">callLegacySystem</span>() { ... }</code></pre>
-        <p class="small">Import from <code>org.springframework.resilience.annotation</code>, not Spring Retry's package of the same name. For programmatic retries, use <code>RetryTemplate</code> with a <code>RetryPolicy</code>. Spring Kafka and Spring AMQP retry the same way now.</p>
+        <p class="small">Import from <code>org.springframework.resilience.annotation</code>, not Spring Retry's package of the same name. For programmatic retries, use <code>RetryTemplate</code> with a <code>RetryPolicy</code>. Spring Kafka and Spring AMQP now use this retry support instead of Spring Retry.</p>
       </article>
 
       <article class="feature narrow">
@@ -191,7 +195,7 @@ OrderV2 <span class="kw">orderV2</span>(...)</code></pre>
 <pre><code><span class="cm">// package-info.java</span>
 <span class="an">@NullMarked</span>
 <span class="kw">package</span> com.example.orders;</code></pre>
-        <p class="small">Switch to <code>org.jspecify.annotations.Nullable</code>. Kotlin reads these annotations, so some Kotlin code may stop compiling.</p>
+        <p class="small">Switch to <code>org.jspecify.annotations.Nullable</code>. Kotlin reads these annotations, so Kotlin code that calls Spring APIs may need extra null handling to compile.</p>
       </article>
 
       <article class="feature narrow">
@@ -203,13 +207,13 @@ OrderV2 <span class="kw">orderV2</span>(...)</code></pre>
       <article class="feature narrow">
         <header><svg class="icon" aria-hidden="true"><use href="#i-flask"/></svg><h3>Testing</h3></header>
         <p><code>RestTestClient</code> is a blocking counterpart to <code>WebTestClient</code>. It works against MockMvc or a running server.<a class="ref" href="#src-2">2</a></p>
-        <p class="small">JUnit 6 is the managed version. Cached test contexts that sit idle are paused and restarted when a test needs them again.<a class="ref" href="#src-5">5</a></p>
+        <p class="small">Spring Boot now manages JUnit 6. Cached test contexts that sit idle are paused and restarted when a test needs them again.<a class="ref" href="#src-5">5</a></p>
       </article>
 
       <article class="feature narrow">
         <header><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><h3>Spring Security 7</h3></header>
         <p>Adds multi-factor authentication. Spring Authorization Server is now part of Spring Security.<a class="ref" href="#src-9">9</a></p>
-        <p class="small"><code>and()</code> is gone, so configure with lambdas only. <code>authorizeRequests</code> and <code>AntPathRequestMatcher</code> give way to <code>authorizeHttpRequests</code> and <code>PathPatternRequestMatcher</code>. The OAuth2 password grant is removed.</p>
+        <p class="small">The <code>and()</code> chaining method is removed. Configure each part with a lambda, such as <code>http.csrf(csrf -&gt; ...)</code>. <code>authorizeRequests</code> and <code>AntPathRequestMatcher</code> give way to <code>authorizeHttpRequests</code> and <code>PathPatternRequestMatcher</code>. The OAuth2 password grant is removed.</p>
       </article>
     </div>
 
@@ -217,10 +221,10 @@ OrderV2 <span class="kw">orderV2</span>(...)</code></pre>
       <h3>Also in 4.0</h3>
       <ul>
         <li><code>JmsClient</code>, a fluent JMS API like <code>JdbcClient</code><a class="ref" href="#src-2">2</a></li>
-        <li>Spring Data repositories generated ahead of time for faster startup<a class="ref" href="#src-10">10</a></li>
-        <li>Kotlin serialization starter for JSON<a class="ref" href="#src-2">2</a></li>
-        <li>Clients built on the JDK <code>HttpClient</code> use virtual threads once you enable them<a class="ref" href="#src-2">2</a></li>
-        <li>Several <code>TaskDecorator</code> beans are combined automatically<a class="ref" href="#src-2">2</a></li>
+        <li>Spring Data repository code generated at build time (AOT) for faster startup<a class="ref" href="#src-10">10</a></li>
+        <li><code>spring-boot-starter-kotlin-serialization</code> for JSON with kotlinx.serialization<a class="ref" href="#src-2">2</a></li>
+        <li>Clients built on the JDK <code>HttpClient</code> use virtual threads when <code>spring.threads.virtual.enabled=true</code><a class="ref" href="#src-2">2</a></li>
+        <li>Multiple <code>TaskDecorator</code> beans are applied together, in <code>@Order</code> order<a class="ref" href="#src-2">2</a></li>
         <li>A <code>logging.console.enabled</code> switch to turn console logging off<a class="ref" href="#src-2">2</a></li>
       </ul>
     </div>
@@ -235,11 +239,11 @@ OrderV2 <span class="kw">orderV2</span>(...)</code></pre>
 
     <ol class="route">
       <li><h3>Get to the latest 3.5.x</h3><p>Fix every deprecation warning. Anything deprecated in 3.x is gone in 4.0.</p></li>
-      <li><h3>Check your dependencies</h3><p>Spring Cloud needs 2025.1 (Oakwood). Confirm every other library supports Boot 4.</p></li>
-      <li><h3>Switch to Boot 4</h3><p>Add <code>spring-boot-properties-migrator</code> at runtime. It logs renamed properties and maps them until you fix them.</p></li>
-      <li><h3>Compile with classic starters</h3><p><code>spring-boot-starter-classic</code> and <code>-test-classic</code> pull in every module. Fix imports and Jackson.</p></li>
+      <li><h3>Check your dependencies</h3><p>Spring Cloud needs 2025.1 (Oakwood). Confirm every other library supports Spring Boot 4.</p></li>
+      <li><h3>Switch to Spring Boot 4</h3><p>Add <code>spring-boot-properties-migrator</code> as a runtime dependency. At startup it logs renamed properties and temporarily maps them to the new names.</p></li>
+      <li><h3>Compile with classic starters</h3><p><code>spring-boot-starter-classic</code> and <code>-test-classic</code> pull in every module. Fix moved imports and the Jackson 3 changes until it compiles.</p></li>
       <li><h3>Move to focused starters</h3><p>Swap the classic starters for one starter and one test starter per technology.</p></li>
-      <li><h3>Test for changed behavior</h3><p>Run the full suite, work through the dark box below, then drop the migrator.</p></li>
+      <li><h3>Test for changed behavior</h3><p>Run the full test suite, work through the dark box below, then remove the properties migrator.</p></li>
     </ol>
 
     <div class="automate">
@@ -248,11 +252,12 @@ OrderV2 <span class="kw">orderV2</span>(...)</code></pre>
     </div>
 
     <div class="migrate-grid">
-      <div>
-        <h3 class="panel-title"><svg class="icon" aria-hidden="true"><use href="#i-checks"/></svg>Rename map</h3>
+      <div class="migrate-left">
+        <h3 class="panel-title"><svg class="icon" aria-hidden="true"><use href="#i-checks"/></svg>Find and replace</h3>
         <p class="panel-intro">The renames most projects hit. For properties, the migrator reports any others.<a class="ref" href="#src-1">1</a></p>
         <table class="renames">
           <caption class="visually-hidden">Old names in Spring Boot 3 and their replacements in Spring Boot 4</caption>
+          <colgroup><col class="c-old"><col class="c-arrow"><col class="c-new"></colgroup>
           <tbody>
             <tr><th colspan="3" scope="colgroup">Starters</th></tr>
             <tr><td class="old">spring-boot-starter-web</td><td class="arrow"><svg class="icon" aria-label="becomes"><use href="#i-arrow"/></svg></td><td class="new">spring-boot-starter-webmvc</td></tr>
@@ -265,23 +270,36 @@ OrderV2 <span class="kw">orderV2</span>(...)</code></pre>
             <tr><td class="old">@MockBean, @SpyBean</td><td class="arrow"><svg class="icon" aria-label="becomes"><use href="#i-arrow"/></svg></td><td class="new">@MockitoBean, @MockitoSpyBean</td></tr>
             <tr><td class="old">Jackson2ObjectMapperBuilderCustomizer</td><td class="arrow"><svg class="icon" aria-label="becomes"><use href="#i-arrow"/></svg></td><td class="new">JsonMapperBuilderCustomizer</td></tr>
             <tr><td class="old">@JsonComponent, @JsonMixin</td><td class="arrow"><svg class="icon" aria-label="becomes"><use href="#i-arrow"/></svg></td><td class="new">@JacksonComponent, @JacksonMixin</td></tr>
-            <tr><td class="old">HttpMessageConverters bean</td><td class="arrow"><svg class="icon" aria-label="becomes"><use href="#i-arrow"/></svg></td><td class="new">Server/ClientHttpMessageConvertersCustomizer</td></tr>
-            <tr><td class="old">o.s.boot.env.EnvironmentPostProcessor</td><td class="arrow"><svg class="icon" aria-label="becomes"><use href="#i-arrow"/></svg></td><td class="new">o.s.boot.EnvironmentPostProcessor</td></tr>
+            <tr><td class="old">HttpMessageConverters bean (Spring Boot)</td><td class="arrow"><svg class="icon" aria-label="becomes"><use href="#i-arrow"/></svg></td><td class="new">ServerHttpMessageConvertersCustomizer, ClientHttpMessageConvertersCustomizer</td></tr>
+            <tr><td class="old">org.<wbr>springframework.<wbr>boot.<wbr>env.<wbr>EnvironmentPostProcessor</td><td class="arrow"><svg class="icon" aria-label="becomes"><use href="#i-arrow"/></svg></td><td class="new">org.<wbr>springframework.<wbr>boot.<wbr>EnvironmentPostProcessor</td></tr>
             <tr><td class="old">hibernate-jpamodelgen</td><td class="arrow"><svg class="icon" aria-label="becomes"><use href="#i-arrow"/></svg></td><td class="new">hibernate-processor</td></tr>
           </tbody>
           <tbody>
             <tr><th colspan="3" scope="colgroup">Properties</th></tr>
-            <tr><td class="old">spring.data.mongodb.uri, host, …</td><td class="arrow"><svg class="icon" aria-label="becomes"><use href="#i-arrow"/></svg></td><td class="new">spring.mongodb.uri, host, …</td></tr>
-            <tr><td class="old">spring.jackson.read.*, write.*</td><td class="arrow"><svg class="icon" aria-label="becomes"><use href="#i-arrow"/></svg></td><td class="new">spring.jackson.json.read.*, json.write.*</td></tr>
-            <tr><td class="old">spring.session.redis.*</td><td class="arrow"><svg class="icon" aria-label="becomes"><use href="#i-arrow"/></svg></td><td class="new">spring.session.data.redis.*</td></tr>
-            <tr><td class="old">spring.dao.exceptiontranslation.enabled</td><td class="arrow"><svg class="icon" aria-label="becomes"><use href="#i-arrow"/></svg></td><td class="new">spring.persistence.exceptiontranslation.enabled</td></tr>
-            <tr><td class="old">management.tracing.enabled</td><td class="arrow"><svg class="icon" aria-label="becomes"><use href="#i-arrow"/></svg></td><td class="new">management.tracing.export.enabled</td></tr>
+            <tr><td class="old">spring.<wbr>data.<wbr>mongodb.<wbr>uri, host, …</td><td class="arrow"><svg class="icon" aria-label="becomes"><use href="#i-arrow"/></svg></td><td class="new">spring.<wbr>mongodb.<wbr>uri, host, …</td></tr>
+            <tr><td class="old">spring.<wbr>jackson.<wbr>read.*, write.*</td><td class="arrow"><svg class="icon" aria-label="becomes"><use href="#i-arrow"/></svg></td><td class="new">spring.<wbr>jackson.<wbr>json.<wbr>read.*, json.<wbr>write.*</td></tr>
+            <tr><td class="old">spring.<wbr>session.<wbr>redis.*</td><td class="arrow"><svg class="icon" aria-label="becomes"><use href="#i-arrow"/></svg></td><td class="new">spring.<wbr>session.<wbr>data.<wbr>redis.*</td></tr>
+            <tr><td class="old">spring.<wbr>dao.<wbr>exceptiontranslation.<wbr>enabled</td><td class="arrow"><svg class="icon" aria-label="becomes"><use href="#i-arrow"/></svg></td><td class="new">spring.<wbr>persistence.<wbr>exceptiontranslation.<wbr>enabled</td></tr>
+            <tr><td class="old">management.<wbr>tracing.<wbr>enabled</td><td class="arrow"><svg class="icon" aria-label="becomes"><use href="#i-arrow"/></svg></td><td class="new">management.<wbr>tracing.<wbr>export.<wbr>enabled</td></tr>
           </tbody>
         </table>
+      <div class="removed">
+        <h3 class="panel-title"><svg class="icon" aria-hidden="true"><use href="#i-off"/></svg>Removed in 4.0</h3>
+        <p class="panel-intro">Plan a replacement before you upgrade.<a class="ref" href="#src-1">1</a></p>
+        <ul>
+          <li><s>Undertow</s><span class="aside">use Tomcat or Jetty</span></li>
+          <li><s>Executable jar launch scripts</s><span class="aside"><code>java -jar</code> still works</span></li>
+          <li><s>Classic jar loader</s><span class="aside">remove the <code>CLASSIC</code> loader setting</span></li>
+          <li><s>Spock integration</s><span class="aside">back in 4.1</span></li>
+          <li><s>Reactive Pulsar client auto-configuration</s></li>
+          <li><s>Spring Session Hazelcast and MongoDB</s><span class="aside">now maintained by the vendors</span></li>
+          <li><s>Spring Retry version management</s><span class="aside">declare the version yourself</span></li>
+        </ul>
+      </div>
       </div>
 
       <aside class="breakers" aria-labelledby="breakers-title">
-        <h3 class="panel-title" id="breakers-title"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Compiles fine, behaves differently</h3>
+        <h3 class="panel-title" id="breakers-title"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Silent changes</h3>
         <p class="panel-intro">No build error will warn you. Check each one before you ship.<a class="ref" href="#src-1">1</a></p>
         <dl>
           <dt>Flyway or Liquibase migrations don't run</dt>
@@ -293,31 +311,17 @@ OrderV2 <span class="kw">orderV2</span>(...)</code></pre>
           <dt>MockMvc or TestRestTemplate can't be injected</dt>
           <dd><code>@SpringBootTest</code> no longer adds them. Add <code>@AutoConfigureMockMvc</code> or <code>@AutoConfigureTestRestTemplate</code>.</dd>
           <dt><code>@Mock</code> fields are null</dt>
-          <dd>The Mockito listener was removed. Add <code>@ExtendWith(MockitoExtension.class)</code>.</dd>
+          <dd>Spring Boot no longer registers <code>MockitoTestExecutionListener</code>, which used to initialize them. Add <code>@ExtendWith(MockitoExtension.class)</code>.</dd>
           <dt>JSON reads or writes differently</dt>
-          <dd>Jackson 3 has new defaults. <code>spring.jackson.use-jackson2-defaults=true</code> restores the old ones while you test.</dd>
+          <dd>Jackson 3 changes several serialization defaults. Compare your API responses with the 3.x output. <code>spring.jackson.use-jackson2-defaults=true</code> restores the old defaults while you test.</dd>
           <dt>MongoDB UUIDs or decimals fail to map</dt>
-          <dd>There is no default representation anymore. Set <code>spring.mongodb.representation.uuid</code> and <code>spring.data.mongodb.representation.big-decimal</code>.</dd>
+          <dd>Spring Boot no longer sets a default storage format for <code>UUID</code> and <code>BigDecimal</code>. Set <code>spring.mongodb.representation.uuid</code> and <code>spring.data.mongodb.representation.big-decimal</code>.</dd>
           <dt>Health shows liveness and readiness groups</dt>
-          <dd>Probes are on by default. Turn them off with <code>management.endpoint.health.probes.enabled=false</code>.</dd>
+          <dd>Liveness and readiness probes are now enabled by default. Turn them off with <code>management.endpoint.health.probes.enabled=false</code>.</dd>
           <dt>Optional dependencies missing from the jar</dt>
-          <dd>The Maven plugin leaves them out. Set <code>&lt;includeOptional&gt;true&lt;/includeOptional&gt;</code>.</dd>
+          <dd>The Spring Boot Maven plugin no longer packages optional dependencies. Set <code>&lt;includeOptional&gt;true&lt;/includeOptional&gt;</code>.</dd>
         </dl>
       </aside>
-    </div>
-
-    <div class="removed">
-      <h3 class="panel-title"><svg class="icon" aria-hidden="true"><use href="#i-off"/></svg>Removed in 4.0</h3>
-      <p class="panel-intro">Plan a replacement before you upgrade.<a class="ref" href="#src-1">1</a></p>
-      <ul>
-        <li><s>Undertow</s><span class="aside">use Tomcat or Jetty</span></li>
-        <li><s>Executable jar launch scripts</s><span class="aside"><code>java -jar</code> still works</span></li>
-        <li><s>Classic jar loader</s></li>
-        <li><s>Spock integration</s><span class="aside">back in 4.1</span></li>
-        <li><s>Reactive Pulsar client</s></li>
-        <li><s>Spring Session Hazelcast and MongoDB</s><span class="aside">now maintained by the vendors</span></li>
-        <li><s>Spring Retry version management</s><span class="aside">declare the version yourself</span></li>
-      </ul>
     </div>
   </section>
 
@@ -326,7 +330,7 @@ OrderV2 <span class="kw">orderV2</span>(...)</code></pre>
     <div class="after">
       <div>
         <h2 id="after-title">After 4.0</h2>
-        <p>A new feature release ships every six months. Staying current keeps you on free support.</p>
+        <p>Spring Boot ships a feature release every six months, and only recent ones get free fixes.</p>
       </div>
       <section aria-labelledby="v41">
         <h3 id="v41">Spring Boot 4.1</h3>
@@ -334,7 +338,7 @@ OrderV2 <span class="kw">orderV2</span>(...)</code></pre>
         <ul>
           <li>Spring gRPC support</li>
           <li>Context propagation for <code>@Async</code></li>
-          <li>Address filtering against SSRF in HTTP clients</li>
+          <li><code>InetAddressFilter</code> for HTTP clients, to block requests to internal addresses (SSRF)</li>
           <li>Removes the APIs deprecated in 4.0, so clear 4.0 deprecation warnings first<a class="ref" href="#src-12">12</a></li>
         </ul>
       </section>
@@ -344,7 +348,7 @@ OrderV2 <span class="kw">orderV2</span>(...)</code></pre>
         <ul>
           <li>Based on Spring Framework 7.1</li>
           <li><code>RestTemplate</code> becomes formally deprecated. Plan the move to <code>RestClient</code>.<a class="ref" href="#src-5">5</a></li>
-          <li>OpenTelemetry semantic conventions for observations</li>
+          <li>Optional OpenTelemetry naming for metrics and traces via <code>management.observations.conventions=open-telemetry</code></li>
         </ul>
       </section>
     </div>

@@ -13,7 +13,7 @@ body { background: var(--paper); }
   --pad-x: max(80px, calc((100vw - var(--content)) / 2));
 }
 
-@media (max-width: 1400px) { .poster { --pad-x: 56px; } }
+@media (max-width: 1560px) { .poster { --pad-x: 56px; } }
 @media (max-width: 960px)  { .poster { --pad-x: 24px; } }
 
 @media print {
