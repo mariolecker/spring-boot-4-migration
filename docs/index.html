@@ -239,7 +239,7 @@ OrderV2 <span class="kw">orderV2</span>(...)</code></pre>
 
     <ol class="route">
       <li><h3>Get to the latest 3.5.x</h3><p>Fix every deprecation warning. Anything deprecated in 3.x is gone in 4.0.</p></li>
-      <li><h3>Check your dependencies</h3><p>Spring Cloud needs 2025.1 (Oakwood). Confirm every other library supports Spring Boot 4.</p></li>
+      <li><h3>Check your toolchain and dependencies</h3><p>Java 17 is still the minimum, and Java 25 is supported. Kotlin needs 2.2+, Gradle 8.14+. Spring Cloud needs 2025.1 (Oakwood). Confirm every other library supports Spring Boot 4.</p></li>
       <li><h3>Switch to Spring Boot 4</h3><p>Add <code>spring-boot-properties-migrator</code> as a runtime dependency. At startup it logs renamed properties and temporarily maps them to the new names.</p></li>
       <li><h3>Compile with classic starters</h3><p><code>spring-boot-starter-classic</code> and <code>-test-classic</code> pull in every module. Fix moved imports and the Jackson 3 changes until it compiles.</p></li>
       <li><h3>Move to focused starters</h3><p>Swap the classic starters for one starter and one test starter per technology.</p></li>
