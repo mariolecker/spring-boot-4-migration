@@ -70,21 +70,24 @@
   <header class="masthead">
     <div class="masthead-main">
       <div>
-        <h1>Spring Boot<span class="visually-hidden"> 4</span></h1>
+        <h1>Spring Boot 4</h1>
         <p class="tagline">What's new, and how to get there from 3.x</p>
         <p class="lead">The first major release since 2022 brings smaller modules, Jackson 3, JSpecify null safety and built-in API versioning. Most of the upgrade is renaming. Watch out for the few changes that compile fine but behave differently.</p>
       </div>
-      <figure class="four" id="four">
-        <svg viewBox="30 54 502 566" role="img" aria-labelledby="four-title">
-          <defs>
-            <clipPath id="four-clip">
-              <text x="282" y="612" text-anchor="middle" font-family="Metropolis, sans-serif" font-weight="800" font-size="800">4</text>
-            </clipPath>
-          </defs>
-          <text class="glyph-fill" x="282" y="612" text-anchor="middle" font-family="Metropolis, sans-serif" font-weight="800" font-size="800">4</text>
-          <g clip-path="url(#four-clip)" id="four-lines"></g>
-          <text class="glyph-outline" x="282" y="612" text-anchor="middle" font-family="Metropolis, sans-serif" font-weight="800" font-size="800">4</text>
-        </svg>
+      <figure class="diff-card" aria-label="Example pom.xml change: Spring Boot parent version 3.5.16 becomes 4.0.0, spring-boot-starter-web becomes spring-boot-starter-webmvc, flyway-core becomes spring-boot-starter-flyway">
+        <figcaption><span class="tab">pom.xml</span><span class="meta">3.5 to 4.0</span></figcaption>
+        <div class="code" aria-hidden="true">
+          <div class="ln ctx"><span class="sg" aria-hidden="true"></span><code>&lt;parent&gt;</code></div>
+          <div class="ln ctx"><span class="sg" aria-hidden="true"></span><code>  &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</code></div>
+          <div class="ln del" style="--n:0"><span class="sg" aria-hidden="true">-</span><code>  &lt;version&gt;3.5.16&lt;/version&gt;</code></div>
+          <div class="ln add" style="--n:0"><span class="sg" aria-hidden="true">+</span><code>  &lt;version&gt;4.0.0&lt;/version&gt;</code></div>
+          <div class="ln ctx"><span class="sg" aria-hidden="true"></span><code>&lt;/parent&gt;</code></div>
+          <div class="ln ctx"><span class="sg" aria-hidden="true"></span><code></code></div>
+          <div class="ln del" style="--n:1"><span class="sg" aria-hidden="true">-</span><code>&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</code></div>
+          <div class="ln add" style="--n:1"><span class="sg" aria-hidden="true">+</span><code>&lt;artifactId&gt;spring-boot-starter-webmvc&lt;/artifactId&gt;</code></div>
+          <div class="ln del" style="--n:2"><span class="sg" aria-hidden="true">-</span><code>&lt;artifactId&gt;flyway-core&lt;/artifactId&gt;</code></div>
+          <div class="ln add" style="--n:2"><span class="sg" aria-hidden="true">+</span><code>&lt;artifactId&gt;spring-boot-starter-flyway&lt;/artifactId&gt;</code></div>
+        </div>
       </figure>
     </div>
 
@@ -102,7 +105,6 @@
   <section class="section" aria-labelledby="new-title">
     <div class="section-head">
       <h2 id="new-title">What's new</h2>
-      <p>The changes you will touch in daily work, with code you can copy.</p>
     </div>
 
     <div class="features">

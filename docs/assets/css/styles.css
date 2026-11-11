@@ -165,27 +165,62 @@ code, .mono { font-family: var(--mono); font-size: 0.86em; }
 .masthead a { color: var(--leaf); }
 .masthead .ref { color: var(--leaf); }
 
-/* the "4" drawn with module names */
-.four { margin: 0; }
-.four svg { display: block; width: 100%; height: auto; overflow: hidden; }
-.four .glyph-outline { fill: none; stroke: var(--green); stroke-width: 2; opacity: 0.55; }
-.four .glyph-fill { fill: #213021; }
-.four .mod { font-family: var(--mono); font-size: 13.5px; }
-.four .mod-a { fill: var(--leaf); }
-.four .mod-b { fill: var(--green); }
-.four .mod-c { fill: #b9dcae; }
-.four figcaption {
-  margin-top: 16px;
-  font-size: 14px;
-  line-height: 1.45;
-  color: var(--on-night-soft);
-  max-width: 46ch;
+/* header: pom.xml diff card. Base styles are the finished state, so
+   print, reduced motion and no-JS all show the result. */
+.diff-card {
+  align-self: start;
+  margin: 110px 0 0 auto;
+  width: 100%;
+  max-width: 600px;
+  background: #141818;
+  border: 1px solid #2f3838;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.6);
 }
-.four figcaption code { color: var(--on-night); }
+.diff-card figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 42px;
+  padding: 0 18px;
+  border-bottom: 1px solid #2f3838;
+  background: #1b2121;
+  font-size: 13px;
+}
+.diff-card .tab { font-family: var(--mono); color: var(--on-night); border-bottom: 2px solid var(--leaf); padding: 11px 0 10px; }
+.diff-card .meta { color: var(--on-night-soft); }
+.diff-card .code { padding: 14px 0; font-family: var(--mono); font-size: 13.5px; line-height: 1.9; }
+.diff-card .ln { display: grid; grid-template-columns: 22px 1fr; padding: 0 18px; white-space: pre; overflow: hidden; }
+.diff-card .ctx { min-height: 1.9em; }
+.diff-card .sg { color: var(--on-night-soft); }
+.diff-card code { font-size: inherit; color: var(--on-night); }
+.diff-card .del { background: rgba(201, 141, 141, 0.08); }
+.diff-card .del .sg, .diff-card .del code { color: #8f7a7a; }
+.diff-card .del code { text-decoration: line-through; text-decoration-color: rgba(201, 141, 141, 0.55); }
+.diff-card .add { background: rgba(128, 234, 110, 0.09); max-height: 2em; }
+.diff-card .add .sg, .diff-card .add code { color: var(--leaf); }
 
-@media (prefers-reduced-motion: no-preference) {
-  .four.is-animated .mod-line { opacity: 0; animation: line-in 0.5s ease-out forwards; }
-  @keyframes line-in { from { opacity: 0; } to { opacity: 1; } }
+/* On load: the file starts as plain 3.5 code. Each change strikes the old
+   line, then inserts the new one below it, one pair after another. */
+@media screen and (prefers-reduced-motion: no-preference) {
+  .diff-card .del, .diff-card .del .sg, .diff-card .del code {
+    animation-duration: 0.35s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+    animation-delay: calc(0.8s + var(--n) * 1.2s);
+  }
+  .diff-card .del { animation-name: diff-mark; }
+  .diff-card .del .sg { animation-name: diff-sign; }
+  .diff-card .del code { animation-name: diff-strike; }
+  .diff-card .add {
+    animation: diff-insert 0.45s cubic-bezier(0.3, 0, 0.2, 1) both;
+    animation-delay: calc(1.25s + var(--n) * 1.2s);
+  }
+  @keyframes diff-mark { from { background: transparent; } }
+  @keyframes diff-sign { from { opacity: 0; } }
+  @keyframes diff-strike { from { color: var(--on-night); text-decoration-color: transparent; } }
+  @keyframes diff-insert { from { max-height: 0; opacity: 0; background: transparent; } }
 }
 
 /* timeline */
@@ -529,7 +564,10 @@ pre .key { color: #b9dcae; }
   .masthead h1 { font-size: 72px; }
   .masthead .tagline { font-size: 28px; }
   .masthead .lead { font-size: 18px; }
-  .four { max-width: 420px; }
+  .diff-card { margin: 8px 0 0; }
+  .diff-card .code { font-size: 11px; }
+  .diff-card .ln { grid-template-columns: 16px 1fr; padding: 0 12px; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .diff-card .add { max-height: 4em; }
   .timeline { grid-template-columns: 1fr; gap: 20px; }
   .timeline::before { left: calc(var(--pad-x) + 6px); right: auto; top: 44px; bottom: 56px; width: 2px; height: auto; background: var(--green); }
   .timeline li { padding: 0 0 0 36px; }
@@ -566,7 +604,6 @@ pre .key { color: #b9dcae; }
   body { background: var(--night); }
   .poster { margin: 0; max-width: none; width: 1600px; box-shadow: none; }
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .four.is-animated .mod-line { opacity: 1 !important; animation: none !important; }
   a { text-decoration: none; }
   .no-print { display: none; }
 }
