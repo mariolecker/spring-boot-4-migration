@@ -108,6 +108,9 @@ code, .mono { font-family: var(--mono); font-size: 0.86em; }
   letter-spacing: -0.02em;
 }
 
+/* a heading without intro text uses the full width, so it stays on one line */
+.section-head h2:only-child { grid-column: 1 / -1; }
+
 .section-head p {
   margin: 0;
   max-width: 62ch;
