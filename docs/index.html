@@ -3,25 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Spring Boot 4: What's New and How to Migrate from 3.x</title>
-<meta name="description" content="Spring Boot 4 on one page: modular starters, Jackson 3, JSpecify null safety, API versioning, HTTP service clients, and a 3.x to 4 migration checklist.">
+<title>Spring Boot 4: What's New and How to Migrate from Spring Boot 3 to 4</title>
+<meta name="description" content="Spring Boot 4 on one page: modular starters, Jackson 3, JSpecify null safety, API versioning, HTTP service clients, and a Spring Boot 3 to 4 migration checklist.">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="https://mariolecker.github.io/spring-boot-4-migration/">
+<link rel="canonical" href="https://mariolecker.github.io/spring-boot-4-migration-guide/">
 <meta name="theme-color" content="#191e1e">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Spring Boot 4 poster">
-<meta property="og:title" content="Spring Boot 4: What's New and How to Migrate from 3.x">
-<meta property="og:description" content="Spring Boot 4 on one page: modular starters, Jackson 3, JSpecify null safety, API versioning, HTTP service clients, and a 3.x to 4 migration checklist.">
-<meta property="og:url" content="https://mariolecker.github.io/spring-boot-4-migration/">
-<meta property="og:image" content="https://mariolecker.github.io/spring-boot-4-migration/assets/img/og-image.png">
+<meta property="og:title" content="Spring Boot 4: What's New and How to Migrate from Spring Boot 3 to 4">
+<meta property="og:description" content="Spring Boot 4 on one page: modular starters, Jackson 3, JSpecify null safety, API versioning, HTTP service clients, and a Spring Boot 3 to 4 migration checklist.">
+<meta property="og:url" content="https://mariolecker.github.io/spring-boot-4-migration-guide/">
+<meta property="og:image" content="https://mariolecker.github.io/spring-boot-4-migration-guide/assets/img/og-image.png">
 <meta property="og:image:width" content="1600">
 <meta property="og:image:height" content="840">
 <meta property="og:image:alt" content="Spring Boot 4 poster header">
 <meta property="article:modified_time" content="2026-11-11">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Spring Boot 4: What's New and How to Migrate from 3.x">
-<meta name="twitter:description" content="Spring Boot 4 on one page: modular starters, Jackson 3, JSpecify null safety, API versioning, HTTP service clients, and a 3.x to 4 migration checklist.">
-<meta name="twitter:image" content="https://mariolecker.github.io/spring-boot-4-migration/assets/img/og-image.png">
+<meta name="twitter:title" content="Spring Boot 4: What's New and How to Migrate from Spring Boot 3 to 4">
+<meta name="twitter:description" content="Spring Boot 4 on one page: modular starters, Jackson 3, JSpecify null safety, API versioning, HTTP service clients, and a Spring Boot 3 to 4 migration checklist.">
+<meta name="twitter:image" content="https://mariolecker.github.io/spring-boot-4-migration-guide/assets/img/og-image.png">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/metropolis-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -32,16 +32,16 @@
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "Spring Boot 4: What's New and How to Migrate from 3.x",
-  "description": "Spring Boot 4 on one page: modular starters, Jackson 3, JSpecify null safety, API versioning, HTTP service clients, and a 3.x to 4 migration checklist.",
-  "url": "https://mariolecker.github.io/spring-boot-4-migration/",
-  "image": "https://mariolecker.github.io/spring-boot-4-migration/assets/img/og-image.png",
+  "headline": "Spring Boot 4: What's New and How to Migrate from Spring Boot 3 to 4",
+  "description": "Spring Boot 4 on one page: modular starters, Jackson 3, JSpecify null safety, API versioning, HTTP service clients, and a Spring Boot 3 to 4 migration checklist.",
+  "url": "https://mariolecker.github.io/spring-boot-4-migration-guide/",
+  "image": "https://mariolecker.github.io/spring-boot-4-migration-guide/assets/img/og-image.png",
   "inLanguage": "en",
   "dateModified": "2026-11-11",
   "proficiencyLevel": "Intermediate",
   "keywords": "Spring Boot 4, Spring Boot 4 migration, Spring Boot 3 to 4, Spring Framework 7, Jackson 3, JSpecify, API versioning, HTTP service clients, Spring Boot starters",
   "about": [{"@type": "SoftwareApplication", "name": "Spring Boot", "softwareVersion": "4.0", "applicationCategory": "DeveloperApplication"}],
-  "associatedMedia": {"@type": "MediaObject", "contentUrl": "https://mariolecker.github.io/spring-boot-4-migration/downloads/spring-boot-4-poster.pdf", "encodingFormat": "application/pdf"}
+  "associatedMedia": {"@type": "MediaObject", "contentUrl": "https://mariolecker.github.io/spring-boot-4-migration-guide/downloads/spring-boot-4-poster.pdf", "encodingFormat": "application/pdf"}
 }
 </script>
 </head>
@@ -74,7 +74,7 @@
     <div class="masthead-main">
       <div>
         <h1>Spring Boot 4</h1>
-        <p class="tagline">What's new, and how to get there from 3.x</p>
+        <p class="tagline">What's new, and how to migrate from Spring Boot 3 to 4</p>
         <p class="lead">The first major release since 2022 brings one module per technology, Jackson 3, JSpecify null safety and built-in API versioning. Most of the upgrade is renaming. Watch out for the few changes that compile fine but behave differently.</p>
       </div>
       <figure class="diff-card" aria-label="Example pom.xml change: Spring Boot parent version 3.5.16 becomes 4.0.0, spring-boot-starter-web becomes spring-boot-starter-webmvc, flyway-core becomes spring-boot-starter-flyway">
@@ -233,7 +233,7 @@ OrderV2 <span class="kw">orderV2</span>(...)</code></pre>
   <!-- ============ MIGRATION ============ -->
   <section class="section migration" aria-labelledby="mig-title">
     <div class="section-head">
-      <h2 id="mig-title">Migrating from 3.x</h2>
+      <h2 id="mig-title">Migrating from 3 to 4</h2>
     </div>
 
     <ol class="route">
@@ -247,7 +247,7 @@ OrderV2 <span class="kw">orderV2</span>(...)</code></pre>
 
     <div class="automate">
       <svg class="icon" aria-hidden="true"><use href="#i-cpu"/></svg>
-      <p>OpenRewrite automates much of steps 1 to 5 with the recipe <code>org.openrewrite.java.spring.boot4.UpgradeSpringBoot_4_0</code>. Review the result like any other pull request.<a class="ref" href="#src-16">16</a></p>
+      <p>OpenRewrite automates much of steps 1 to 5 with the recipe <code>org.openrewrite.java.spring.boot4.UpgradeSpringBoot_4_0</code>.<a class="ref" href="#src-16">16</a></p>
     </div>
 
     <div class="migrate-grid">

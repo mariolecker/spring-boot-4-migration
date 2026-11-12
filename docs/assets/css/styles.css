@@ -174,7 +174,7 @@ code, .mono { font-family: var(--mono); font-size: 0.86em; }
   font-size: 38px;
   line-height: 1.15;
   color: var(--leaf);
-  max-width: 18ch;
+  max-width: 22ch;
 }
 
 .masthead .lead {

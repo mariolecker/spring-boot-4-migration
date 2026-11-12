@@ -1,10 +1,10 @@
 # Spring Boot 4: what's new and how to migrate
 
-A one-page poster on Spring Boot 4. It covers the main new features and a migration checklist for teams moving from Spring Boot 3.x.
+A one-page poster on Spring Boot 4. It covers the main new features and a migration checklist for teams moving from Spring Boot 3 to 4.
 
-**Live site:** https://mariolecker.github.io/spring-boot-4-migration/
+**Live site:** https://mariolecker.github.io/spring-boot-4-migration-guide/
 
-[Print-ready PDF](https://mariolecker.github.io/spring-boot-4-migration/downloads/spring-boot-4-poster.pdf)
+[Print-ready PDF](https://mariolecker.github.io/spring-boot-4-migration-guide/downloads/spring-boot-4-poster.pdf)
 
 ## Repository layout
 
